@@ -27,9 +27,29 @@ class Slot : SlotInterface {
         val nextSlideTags = this.next?.slide?.tags ?: return 0
         val thisSlideTags = this.slide?.tags ?: return 0
 
-        val common = thisSlideTags.asSequence().filter { nextSlideTags.contains(it) }.count()
-        val uniqueThis = thisSlideTags.asSequence().filter { !nextSlideTags.contains(it) }.count()
-        val uniqueNext = nextSlideTags.asSequence().filter { !thisSlideTags.contains(it) }.count()
+        var common = 0
+        var uniqueThis = 0
+        var uniqueNext = 0
+
+        ttLoop@ for (tt in thisSlideTags) {
+            for (nt in nextSlideTags) {
+                if (tt == nt) {
+                    common += 1;
+                    continue@ttLoop
+                }
+            }
+            uniqueThis += 1
+        }
+
+        ntLoop@ for (nt in nextSlideTags) {
+            for (tt in thisSlideTags) {
+                if (tt == nt) {
+                    continue@ntLoop
+                }
+            }
+            uniqueNext += 1
+        }
+
         return min(common, min(uniqueNext, uniqueThis))
     }
 

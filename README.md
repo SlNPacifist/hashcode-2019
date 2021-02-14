@@ -28,7 +28,7 @@ sudo apt install maven3
 git clone git@github.com:SlNPacifist/hashcode-2019.git
 cd ./hashcode-2019
 mvn package appassembler:assemble
-./target/appassembler/bin/app
+./target/appassembler/bin/app data/b_lovely_landscapes.txt
 ```
 
 ## Многопоточность

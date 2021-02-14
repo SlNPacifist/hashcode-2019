@@ -4,6 +4,8 @@ import domain.Album
 import domain.SlotInterface
 import org.optaplanner.core.impl.score.director.ScoreDirector
 import org.optaplanner.core.impl.heuristic.move.AbstractMove
+import org.optaplanner.core.impl.heuristic.move.Move
+import java.lang.Error
 
 class PlaceSlideMove(val b: SlotInterface, val d: SlotInterface?) : AbstractMove<Album>() {
     override fun doMoveOnGenuineVariables(scoreDirector: ScoreDirector<Album>) {
@@ -84,5 +86,13 @@ class PlaceSlideMove(val b: SlotInterface, val d: SlotInterface?) : AbstractMove
 
     override fun toString(): String {
         return "Place $b after $d"
+    }
+
+    override fun rebase(destinationScoreDirector: ScoreDirector<Album>?): Move<Album> {
+        if (destinationScoreDirector == null) {
+            throw Error("rebase called without destinationScoreDirector")
+        }
+        val newD = if (d == null) null else destinationScoreDirector.lookUpWorkingObject(d)
+        return PlaceSlideMove(destinationScoreDirector.lookUpWorkingObject(b), newD)
     }
 }

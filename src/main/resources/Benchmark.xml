@@ -12,7 +12,7 @@
             </scoreDirectorFactory>
 
             <termination>
-                <secondsSpentLimit>10</secondsSpentLimit>
+                <secondsSpentLimit>30</secondsSpentLimit>
             </termination>
             <constructionHeuristic>
             </constructionHeuristic>
@@ -31,6 +31,12 @@
     <solverBenchmark>
         <name>Base</name>
         <solver>
+        </solver>
+    </solverBenchmark>
+    <solverBenchmark>
+        <name>Multithreaded</name>
+        <solver>
+            <moveThreadCount>AUTO</moveThreadCount>
         </solver>
     </solverBenchmark>
 </plannerBenchmark>

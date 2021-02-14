@@ -16,7 +16,7 @@
   </constructionHeuristic>
   <localSearch>
     <moveIteratorFactory>
-      <moveIteratorFactoryClass>PlaceSlideMoveFactory</moveIteratorFactoryClass>
+      <moveIteratorFactoryClass>solver.PlaceSlideMoveFactory</moveIteratorFactoryClass>
 <!--      <selectionOrder>ORIGINAL</selectionOrder>-->
     </moveIteratorFactory>
   </localSearch>

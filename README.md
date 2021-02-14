@@ -12,7 +12,7 @@
 
 ## benchmark
 
-TODO
+[src/main/kotlin/benchmark.kt](src/main/kotlin/benchmark.kt)
 
 ## Запуск в проде
 

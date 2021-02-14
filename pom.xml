@@ -81,6 +81,11 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.30</version>
         </dependency>
+        <dependency>
+            <groupId>org.optaplanner</groupId>
+            <artifactId>optaplanner-benchmark</artifactId>
+            <version>7.49.0.Final</version>
+        </dependency>
     </dependencies>
 
 </project>

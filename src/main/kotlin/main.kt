@@ -20,6 +20,6 @@ fun main(args: Array<String>) {
     }
 
     // Path relative to cwd
-    val album = Album.fromFileName("data/c_memorable_moments.txt")
+    val album = Album.fromFileName("data/b_lovely_landscapes.txt")
     solver.solve(album)
 }

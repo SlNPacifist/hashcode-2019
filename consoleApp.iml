@@ -33,6 +33,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.optaplanner:optaplanner-benchmark:7.49.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.optaplanner:optaplanner-persistence-common:7.49.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.optaplanner:optaplanner-persistence-xstream:7.49.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.optaplanner:optaplanner-persistence-jaxb:7.49.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.xml.bind:jboss-jaxb-api_2.3_spec:1.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jfree:jfreechart:1.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.28" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.4.10" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.10" level="project" />
@@ -71,5 +79,13 @@
     <orderEntry type="library" name="Maven: xpp3:xpp3_min:1.1.4c" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.30" level="project" />
+    <orderEntry type="library" name="Maven: org.optaplanner:optaplanner-benchmark:7.49.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.optaplanner:optaplanner-persistence-common:7.49.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.optaplanner:optaplanner-persistence-xstream:7.49.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.optaplanner:optaplanner-persistence-jaxb:7.49.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.xml.bind:jboss-jaxb-api_2.3_spec:1.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jfree:jfreechart:1.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.28" level="project" />
   </component>
 </module>

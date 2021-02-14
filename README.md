@@ -4,7 +4,7 @@
 
 Таблица с [результатами](https://codingcompetitions.withgoogle.com/hashcode/archive/2019)
 
-Используем [optaplanner](https://www.optaplanner.org/). Дока: https://docs.optaplanner.org/latest/optaplanner-docs/html_single/
+Используем [optaplanner](https://www.optaplanner.org/). [Дока](https://docs.optaplanner.org/latest/optaplanner-docs/html_single/), [примеры](https://github.com/kiegroup/optaplanner/tree/master/optaplanner-examples).
 
 ## Запуск в dev
 

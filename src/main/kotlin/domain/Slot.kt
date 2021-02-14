@@ -24,11 +24,12 @@ class Slot : SlotInterface {
     }
 
     fun score(): Int {
-        val nextSlide = this.next?.slide ?: return 0
-        val thisSlide = this.slide ?: return 0
-        val common = thisSlide.tags.asIterable().intersect(nextSlide.tags.asIterable()).size
-        val uniqueThis = thisSlide.tags.filter { !nextSlide.tags.contains(it) }.size
-        val uniqueNext = nextSlide.tags.filter { !thisSlide.tags.contains(it) }.size
+        val nextSlideTags = this.next?.slide?.tags ?: return 0
+        val thisSlideTags = this.slide?.tags ?: return 0
+
+        val common = thisSlideTags.asSequence().filter { nextSlideTags.contains(it) }.count()
+        val uniqueThis = thisSlideTags.asSequence().filter { !nextSlideTags.contains(it) }.count()
+        val uniqueNext = nextSlideTags.asSequence().filter { !thisSlideTags.contains(it) }.count()
         return min(common, min(uniqueNext, uniqueThis))
     }
 

@@ -1,0 +1,96 @@
+<plannerBenchmarkResult xStreamId="1">
+  <name>2021-02-14_214111</name>
+  <aggregation>false</aggregation>
+  <availableProcessors>12</availableProcessors>
+  <loggingLevelOptaPlannerCore>info</loggingLevelOptaPlannerCore>
+  <loggingLevelDroolsCore>info</loggingLevelDroolsCore>
+  <maxMemory>3817865216</maxMemory>
+  <optaPlannerVersion>7.49.0.Final</optaPlannerVersion>
+  <javaVersion>Java 1.8.0_131 (Oracle Corporation)</javaVersion>
+  <javaVM>Java Java HotSpot(TM) 64-Bit Server VM 25.131-b11 (Oracle Corporation)</javaVM>
+  <operatingSystem>Mac OS X x86_64 10.16</operatingSystem>
+  <parallelBenchmarkCount>1</parallelBenchmarkCount>
+  <warmUpTimeMillisSpentLimit>30</warmUpTimeMillisSpentLimit>
+  <solverBenchmarkResult xStreamId="2">
+    <name>Base</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="3">
+      <solutionClass>domain.Album</solutionClass>
+      <entityClass>domain.Slot</entityClass>
+      <scoreDirectorFactory xStreamId="4">
+        <incrementalScoreCalculatorClass>solver.ScoreCalc</incrementalScoreCalculatorClass>
+      </scoreDirectorFactory>
+      <termination xStreamId="5">
+        <secondsSpentLimit>30</secondsSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="6"/>
+      <localSearch xStreamId="7">
+        <moveIteratorFactory xStreamId="8">
+          <moveIteratorFactoryClass>solver.PlaceSlideMoveFactory</moveIteratorFactoryClass>
+        </moveIteratorFactory>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="9">
+      <subSingleBenchmarkResult xStreamId="10">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <usedMemoryAfterInputSolution>4682416</usedMemoryAfterInputSolution>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.simple.SimpleScore" xStreamId="11">695</score>
+        <timeMillisSpent>30000</timeMillisSpent>
+        <scoreCalculationCount>6493175</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <solverBenchmarkResult xStreamId="12">
+    <name>Multithreaded</name>
+    <subSingleCount>1</subSingleCount>
+    <solverConfig xStreamId="13">
+      <moveThreadCount>AUTO</moveThreadCount>
+      <solutionClass>domain.Album</solutionClass>
+      <entityClass>domain.Slot</entityClass>
+      <scoreDirectorFactory xStreamId="14">
+        <incrementalScoreCalculatorClass>solver.ScoreCalc</incrementalScoreCalculatorClass>
+      </scoreDirectorFactory>
+      <termination xStreamId="15">
+        <secondsSpentLimit>30</secondsSpentLimit>
+      </termination>
+      <constructionHeuristic xStreamId="16"/>
+      <localSearch xStreamId="17">
+        <moveIteratorFactory xStreamRef="8"/>
+      </localSearch>
+    </solverConfig>
+    <singleBenchmarkResult xStreamId="18">
+      <subSingleBenchmarkResult xStreamId="19">
+        <subSingleBenchmarkIndex>0</subSingleBenchmarkIndex>
+        <usedMemoryAfterInputSolution>4679504</usedMemoryAfterInputSolution>
+        <succeeded>true</succeeded>
+        <score class="org.optaplanner.core.api.score.buildin.simple.SimpleScore" xStreamId="20">531</score>
+        <timeMillisSpent>30001</timeMillisSpent>
+        <scoreCalculationCount>3004369</scoreCalculationCount>
+      </subSingleBenchmarkResult>
+      <timeMillisSpent>-1</timeMillisSpent>
+      <scoreCalculationCount>-1</scoreCalculationCount>
+    </singleBenchmarkResult>
+  </solverBenchmarkResult>
+  <unifiedProblemBenchmarkResult xStreamId="21">
+    <name>c_memorable_moments</name>
+    <problemProvider class="fileProblemProvider" xStreamId="22">
+      <problemFile>data/c_memorable_moments.txt</problemFile>
+    </problemProvider>
+    <writeOutputSolutionEnabled>false</writeOutputSolutionEnabled>
+    <problemStatistic class="bestScoreProblemStatistic" xStreamId="23">
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemStatistic>
+    <singleBenchmarkResult xStreamRef="9"/>
+    <singleBenchmarkResult xStreamRef="18"/>
+    <entityCount>750</entityCount>
+    <variableCount>750</variableCount>
+    <maximumValueCount>750</maximumValueCount>
+    <problemScale>562500</problemScale>
+    <inputSolutionLoadingTimeMillisSpent>6</inputSolutionLoadingTimeMillisSpent>
+  </unifiedProblemBenchmarkResult>
+  <startingTimestamp>2021-02-14T21:41:11.598+03:00</startingTimestamp>
+  <benchmarkTimeMillisSpent>60804</benchmarkTimeMillisSpent>
+</plannerBenchmarkResult>

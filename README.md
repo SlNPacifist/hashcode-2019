@@ -14,6 +14,8 @@
 
 [src/main/kotlin/benchmark.kt](src/main/kotlin/benchmark.kt)
 
+[Пример отчёта бенчмарка](benchmark-result-example/index.html)
+
 ## Запуск в проде
 
 TODO

@@ -1,5 +1,6 @@
 package domain
 
+import org.optaplanner.core.api.domain.solution.cloner.SolutionCloner
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty
 import org.optaplanner.core.api.domain.solution.PlanningScore
 import org.optaplanner.core.api.domain.solution.PlanningSolution
@@ -7,7 +8,7 @@ import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider
 import org.optaplanner.core.api.score.buildin.simple.SimpleScore
 import java.io.File
 
-@PlanningSolution
+@PlanningSolution(solutionCloner = AlbumCloner::class)
 class Album {
     lateinit var slides: Array<Slide>
 
@@ -78,5 +79,32 @@ class Album {
             cur = cur.next
         }
         return parts.joinToString("\n")
+    }
+}
+
+class AlbumCloner : SolutionCloner<Album> {
+    override fun cloneSolution(original: Album): Album {
+        val clone = Album()
+        clone.slides = original.slides
+        clone.score = original.score
+        val newSlots = Array<Slot>(original.slots.size) { Slot(original.slots[it].id!!, original.slots[it].slide!!) }
+
+        for (slot in original.slots) {
+            val newSlot = newSlots[slot.id!!]
+            if (slot.next != null) {
+                if (slot.next is EndSlot) {
+                    newSlot.next = slot.next
+                } else {
+                    newSlot.next = newSlots[slot.next!!.id!!]
+                }
+            }
+            if (slot.prev != null) {
+                newSlot.prev = newSlots[slot.prev!!.id!!]
+            }
+        }
+
+        clone.slots = newSlots
+
+        return clone
     }
 }

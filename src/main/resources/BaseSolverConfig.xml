@@ -4,7 +4,6 @@
 
   <solutionClass>domain.Album</solutionClass>
   <entityClass>domain.Slot</entityClass>
-  <environmentMode>FULL_ASSERT</environmentMode>
 
   <scoreDirectorFactory>
     <incrementalScoreCalculatorClass>solver.ScoreCalc</incrementalScoreCalculatorClass>

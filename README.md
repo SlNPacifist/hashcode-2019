@@ -13,3 +13,7 @@ TODO
 ## Запуск в проде
 
 TODO
+
+## Таблица с результатами
+
+https://codingcompetitions.withgoogle.com/hashcode/archive/2019

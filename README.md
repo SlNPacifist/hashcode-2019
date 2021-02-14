@@ -14,7 +14,7 @@
 
 [src/main/kotlin/benchmark.kt](src/main/kotlin/benchmark.kt)
 
-[Пример отчёта бенчмарка](benchmark-result-example/index.html)
+[Пример отчёта бенчмарка](https://htmlpreview.github.io/?https://github.com/SlNPacifist/hashcode-2019/blob/master/benchmark-result-example/index.html)
 
 ## Запуск в проде
 

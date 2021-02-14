@@ -34,9 +34,9 @@ class Album {
     companion object {
         fun fromFile(file: File): Album {
             val photos = file.bufferedReader().useLines {
-                val it = it.iterator()
-                val photosCount = it.next().toInt()
-                it.asSequence().take(photosCount).mapIndexed { id, x -> Photo.fromString(id, x) }.toList()
+                val iter = it.iterator()
+                val photosCount = iter.next().toInt()
+                iter.asSequence().take(photosCount).mapIndexed { id, x -> Photo.fromString(id, x) }.toList()
             }
 
             val tagDict = HashMap<String, Int>()
@@ -44,7 +44,7 @@ class Album {
             for (photo in photos) {
                 for (tag in photo.tags){
                     if (! tagDict.containsKey(tag)) {
-                        tagDict.set(tag, tagId)
+                        tagDict[tag] = tagId
                         tagId += 1
                     }
                 }
@@ -54,11 +54,11 @@ class Album {
             val slides = mutableListOf<Slide>()
             for (photo in photos) {
                 if (photo.isVertical) {
-                    if (lastVerticalPhoto != null) {
+                    lastVerticalPhoto = if (lastVerticalPhoto != null) {
                         slides.add(Slide(tagDict, listOf(lastVerticalPhoto, photo)))
-                        lastVerticalPhoto = null
+                        null
                     } else {
-                        lastVerticalPhoto = photo
+                        photo
                     }
                 } else {
                     slides.add(Slide(tagDict, listOf(photo)))
@@ -80,7 +80,7 @@ class Album {
             head = head.prev ?: break
         }
 
-        val parts = mutableListOf<String>("${this.slots.size}")
+        val parts = mutableListOf("${this.slots.size}")
         var cur: SlotInterface? = head
         while (cur != null) {
             val part = cur.slide?.photos?.map { it.id }?.joinToString(" ")
@@ -98,7 +98,7 @@ class AlbumCloner : SolutionCloner<Album> {
         val clone = Album()
         clone.slides = original.slides
         clone.score = original.score
-        val newSlots = Array<Slot>(original.slots.size) { Slot(original.slots[it].id!!, original.slots[it].slide!!) }
+        val newSlots = Array(original.slots.size) { Slot(original.slots[it].id!!, original.slots[it].slide!!) }
 
         for (slot in original.slots) {
             val newSlot = newSlots[slot.id!!]

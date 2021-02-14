@@ -1,3 +1,5 @@
+package domain
+
 abstract class SlotInterface {
     abstract var id: Int?
     abstract var slide: Slide?

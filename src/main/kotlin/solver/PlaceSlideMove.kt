@@ -1,3 +1,7 @@
+package solver
+
+import domain.Album
+import domain.SlotInterface
 import org.optaplanner.core.impl.score.director.ScoreDirector
 import org.optaplanner.core.impl.heuristic.move.AbstractMove
 

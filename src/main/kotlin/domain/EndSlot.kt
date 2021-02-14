@@ -1,3 +1,5 @@
+package domain
+
 class EndSlot: SlotInterface() {
     override var id: Int? = null
     override var slide: Slide? = null

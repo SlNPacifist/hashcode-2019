@@ -1,3 +1,5 @@
+package domain
+
 class Photo(val id: Int, val tags: HashSet<String>, val isVertical: Boolean) {
     companion object {
         fun fromString(id: Int, s: String): Photo {

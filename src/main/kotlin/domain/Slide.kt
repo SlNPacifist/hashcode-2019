@@ -1,3 +1,5 @@
+package domain
+
 class Slide {
     lateinit var photos: List<Photo>
     lateinit var tags: HashSet<String>

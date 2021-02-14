@@ -1,3 +1,5 @@
+package domain
+
 import org.optaplanner.core.api.domain.entity.PlanningEntity
 import org.optaplanner.core.api.domain.lookup.PlanningId
 import org.optaplanner.core.api.domain.variable.PlanningVariable
@@ -31,6 +33,6 @@ class Slot : SlotInterface {
     }
 
     override fun toString(): String {
-        return "Slot $id"
+        return "domain.Slot $id"
     }
 }

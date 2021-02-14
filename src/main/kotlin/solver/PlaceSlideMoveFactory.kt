@@ -1,3 +1,6 @@
+package solver
+
+import domain.Album
 import org.optaplanner.core.impl.heuristic.selector.move.factory.MoveListFactory
 import java.util.ArrayList
 

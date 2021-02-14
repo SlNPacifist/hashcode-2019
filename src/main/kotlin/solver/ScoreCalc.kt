@@ -1,3 +1,7 @@
+package solver
+
+import domain.Album
+import domain.Slot
 import org.optaplanner.core.api.score.buildin.simple.SimpleScore
 import org.optaplanner.core.api.score.calculator.IncrementalScoreCalculator
 

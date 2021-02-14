@@ -1,3 +1,4 @@
+import domain.Album
 import org.optaplanner.core.api.solver.SolverFactory
 
 

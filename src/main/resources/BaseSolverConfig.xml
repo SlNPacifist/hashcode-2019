@@ -6,8 +6,8 @@
   <!--  To solve faster by saturating multiple CPU cores-->
 <!--  <moveThreadCount>AUTO</moveThreadCount>-->
 
-  <solutionClass>Album</solutionClass>
-  <entityClass>Slot</entityClass>
+  <solutionClass>domain.Album</solutionClass>
+  <entityClass>domain.Slot</entityClass>
   <environmentMode>FULL_ASSERT</environmentMode>
 
   <scoreDirectorFactory>
@@ -16,7 +16,7 @@
     <!--<constraintProviderClass>org.optaplanner.examples.nqueens.optional.score.NQueensConstraintProvider</constraintProviderClass>-->
 <!--    <constraintProviderClass>solver.GraphColoringConstraintProvider</constraintProviderClass>-->
 <!--    <incrementalScoreCalculatorClass>org.optaplanner.examples.nqueens.optional.score.NQueensAdvancedIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
-    <incrementalScoreCalculatorClass>ScoreCalc</incrementalScoreCalculatorClass>
+    <incrementalScoreCalculatorClass>solver.ScoreCalc</incrementalScoreCalculatorClass>
 <!--    <scoreDrl>org/optaplanner/examples/nqueens/solver/nQueensConstraints.drl</scoreDrl>-->
 <!--    <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>-->
     <!--<assertionScoreDirectorFactory>-->
@@ -33,7 +33,7 @@
   </constructionHeuristic>
   <localSearch>
     <moveListFactory>
-      <moveListFactoryClass>PlaceSlideMoveFactory</moveListFactoryClass>
+      <moveListFactoryClass>solver.PlaceSlideMoveFactory</moveListFactoryClass>
     </moveListFactory>
 <!--    <changeMoveSelector>-->
 <!--      <selectionOrder>ORIGINAL</selectionOrder>-->

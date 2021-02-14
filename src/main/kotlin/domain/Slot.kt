@@ -26,7 +26,7 @@ class Slot : SlotInterface {
     fun score(): Int {
         val nextSlide = this.next?.slide ?: return 0
         val thisSlide = this.slide ?: return 0
-        val common = thisSlide.tags.intersect(nextSlide.tags).size
+        val common = thisSlide.tags.asIterable().intersect(nextSlide.tags.asIterable()).size
         val uniqueThis = thisSlide.tags.filter { !nextSlide.tags.contains(it) }.size
         val uniqueNext = nextSlide.tags.filter { !thisSlide.tags.contains(it) }.size
         return min(common, min(uniqueNext, uniqueThis))

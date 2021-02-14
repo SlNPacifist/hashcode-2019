@@ -39,18 +39,29 @@ class Album {
                 it.asSequence().take(photosCount).mapIndexed { id, x -> Photo.fromString(id, x) }.toList()
             }
 
+            val tagDict = HashMap<String, Int>()
+            var tagId = 0
+            for (photo in photos) {
+                for (tag in photo.tags){
+                    if (! tagDict.containsKey(tag)) {
+                        tagDict.set(tag, tagId)
+                        tagId += 1
+                    }
+                }
+            }
+
             var lastVerticalPhoto: Photo? = null
             val slides = mutableListOf<Slide>()
             for (photo in photos) {
                 if (photo.isVertical) {
                     if (lastVerticalPhoto != null) {
-                        slides.add(Slide(listOf(lastVerticalPhoto, photo)))
+                        slides.add(Slide(tagDict, listOf(lastVerticalPhoto, photo)))
                         lastVerticalPhoto = null
                     } else {
                         lastVerticalPhoto = photo
                     }
                 } else {
-                    slides.add(Slide(listOf(photo)))
+                    slides.add(Slide(tagDict, listOf(photo)))
                 }
             }
 

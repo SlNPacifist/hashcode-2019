@@ -23,11 +23,17 @@ class PlaceSlideMove(val b: SlotInterface, val d: SlotInterface?) : AbstractMove
             this.beforeChange(scoreDirector, b)
             this.beforeChange(scoreDirector, a)
 
+            // head -> ... -> a -> b -> c -> ...
+            // head == a -> b -> c -> ...
+
             b.next = head
             head.prev = b
             a?.next = c
             c?.prev = a
             b.prev = null
+
+            // b -> head -> ... -> a -> c -> ...
+            // b -> head == a -> c -> ...
 
             this.afterChange(scoreDirector, b)
             this.afterChange(scoreDirector, a)

@@ -88,6 +88,7 @@ class PlaceSlideMove(val b: SlotInterface, val d: SlotInterface?) : AbstractMove
         return "Place $b after $d"
     }
 
+    // Required for multithreading support
     override fun rebase(destinationScoreDirector: ScoreDirector<Album>?): Move<Album> {
         if (destinationScoreDirector == null) {
             throw Error("rebase called without destinationScoreDirector")

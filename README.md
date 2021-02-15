@@ -10,6 +10,12 @@
 
 [src/main/kotlin/main.kt](src/main/kotlin/main.kt)
 
+## Запуск под ассертами
+
+После каждого сложного изменения
+[src/main/kotlin/asserted.kt](src/main/kotlin/asserted.kt)
+
+
 ## benchmark
 
 [src/main/kotlin/benchmark.kt](src/main/kotlin/benchmark.kt)

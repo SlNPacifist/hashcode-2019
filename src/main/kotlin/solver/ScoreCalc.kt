@@ -1,7 +1,7 @@
 package solver
 
 import domain.Album
-import domain.Slot
+import domain.Slide
 import org.optaplanner.core.api.score.buildin.simple.SimpleScore
 import org.optaplanner.core.api.score.calculator.IncrementalScoreCalculator
 
@@ -14,8 +14,8 @@ class ScoreCalc: IncrementalScoreCalculator<Album, SimpleScore> {
             return
         }
 
-        for (slot in workingSolution.slots) {
-            appendSlot(slot)
+        for (slide in workingSolution.slides) {
+            appendSlide(slide)
         }
 //        println("Finished resetting")
     }
@@ -25,11 +25,11 @@ class ScoreCalc: IncrementalScoreCalculator<Album, SimpleScore> {
     }
 
     override fun afterEntityAdded(entity: Any?) {
-        appendSlot(entity as Slot)
+        appendSlide(entity as Slide)
     }
 
     override fun beforeEntityRemoved(entity: Any?) {
-        removeSlot(entity as Slot)
+        removeSlot(entity as Slide)
     }
 
     override fun afterEntityRemoved(entity: Any?) {
@@ -37,26 +37,26 @@ class ScoreCalc: IncrementalScoreCalculator<Album, SimpleScore> {
     }
 
     override fun beforeVariableChanged(entity: Any?, variableName: String?) {
-        removeSlot(entity as Slot)
+        removeSlot(entity as Slide)
     }
 
     override fun afterVariableChanged(entity: Any?, variableName: String?) {
-        appendSlot(entity as Slot)
+        appendSlide(entity as Slide)
     }
 
     override fun calculateScore(): SimpleScore {
         return SimpleScore.of(score)
     }
 
-    private fun removeSlot(slot: Slot) {
-//        println("Going to remove ${slot}, score is ${this.score}, slot score is ${slot.score()}")
-        this.score -= slot.score()
-//        println("Removed ${slot}, score is ${this.score}")
+    private fun removeSlot(slide: Slide) {
+//        println("Going to remove ${slide}, score is ${this.score}, slide score is ${slide.score()}")
+        this.score -= slide.score()
+//        println("Removed ${slide}, score is ${this.score}")
     }
 
-    private fun appendSlot(slot: Slot) {
-//        println("Going to append ${slot}, score is ${this.score}, slot score is ${slot.score()}")
-        this.score += slot.score()
-//        println("Added ${slot}, score is ${this.score}")
+    private fun appendSlide(slide: Slide) {
+//        println("Going to append ${slide}, score is ${this.score}, slide score is ${slide.score()}")
+        this.score += slide.score()
+//        println("Added ${slide}, score is ${this.score}")
     }
 }

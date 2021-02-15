@@ -1,13 +1,13 @@
 package solver
 
 import domain.Album
-import domain.SlotInterface
+import domain.Slide
 import org.optaplanner.core.impl.score.director.ScoreDirector
 import org.optaplanner.core.impl.heuristic.move.AbstractMove
 import org.optaplanner.core.impl.heuristic.move.Move
 import java.lang.Error
 
-class PlaceSlideMove(val b: SlotInterface, val d: SlotInterface?) : AbstractMove<Album>() {
+class PlaceSlideMove(val b: Slide, val d: Slide?) : AbstractMove<Album>() {
     override fun doMoveOnGenuineVariables(scoreDirector: ScoreDirector<Album>) {
 //        println(this)
 //        println("Solution before move:")
@@ -64,15 +64,15 @@ class PlaceSlideMove(val b: SlotInterface, val d: SlotInterface?) : AbstractMove
         }
     }
 
-    fun beforeChange(scoreDirector: ScoreDirector<Album>, slot: SlotInterface?) {
-        if (slot != null) {
-            scoreDirector.beforeVariableChanged(slot, "next")
+    fun beforeChange(scoreDirector: ScoreDirector<Album>, slide: Slide?) {
+        if (slide != null) {
+            scoreDirector.beforeVariableChanged(slide, "next")
         }
     }
 
-    fun afterChange(scoreDirector: ScoreDirector<Album>, slot: SlotInterface?) {
-        if (slot != null) {
-            scoreDirector.afterVariableChanged(slot, "next")
+    fun afterChange(scoreDirector: ScoreDirector<Album>, slide: Slide?) {
+        if (slide != null) {
+            scoreDirector.afterVariableChanged(slide, "next")
         }
     }
 

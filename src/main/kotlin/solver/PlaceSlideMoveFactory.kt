@@ -8,21 +8,21 @@ import java.util.*
 
 class PlaceSlideMoveFactory : MoveIteratorFactory<Album> {
     override fun getSize(scoreDirector: ScoreDirector<Album>): Long {
-        val totalSlots = scoreDirector.workingSolution.slots.size.toLong()
+        val totalSlots = scoreDirector.workingSolution.slides.size.toLong()
         return totalSlots * totalSlots
     }
 
     override fun createOriginalMoveIterator(scoreDirector: ScoreDirector<Album>): Iterator<Move<Album>> {
-        val slots = scoreDirector.workingSolution.slots
+        val slides = scoreDirector.workingSolution.slides
         return sequence {
 //            println("createOriginalMoveIterator start")
 //            println("slots: ${ slots.slice(0..10).map{ "${it.prev?.id} => ${it.id} => ${it.next?.id} " } }")
-            for (b in slots) {
+            for (b in slides) {
                 if (b.prev != null) {
 //                    println("createOriginalMoveIterator ${PlaceSlideMove(b, null)}")
                     yield(PlaceSlideMove(b, null))
                 }
-                for (d in slots) {
+                for (d in slides) {
                     if (d != b.prev && d != b) {
 //                        println("createOriginalMoveIterator ${PlaceSlideMove(b, d)}")
                         yield(PlaceSlideMove(b, d))
@@ -33,17 +33,17 @@ class PlaceSlideMoveFactory : MoveIteratorFactory<Album> {
     }
 
     override fun createRandomMoveIterator(scoreDirector: ScoreDirector<Album>, workingRandom: Random): Iterator<Move<Album>> {
-        val slots = scoreDirector.workingSolution.slots
+        val slides = scoreDirector.workingSolution.slides
         return sequence {
 //            println("createRandomMoveIterator start")
 //            println("slots: ${ slots.slice(0..10).map{ "${it.prev?.id} => ${it.id} => ${it.next?.id} " } }")
 
             while (true) {
-                val bIdx = workingRandom.nextInt(slots.size)
-                val dIdx = workingRandom.nextInt(slots.size)
+                val bIdx = workingRandom.nextInt(slides.size)
+                val dIdx = workingRandom.nextInt(slides.size)
 
-                val b = slots[bIdx]
-                val d = slots[dIdx]
+                val b = slides[bIdx]
+                val d = slides[dIdx]
 
                 if (d == b.prev) {
                     // Same position - move b after d, when d is b.prev

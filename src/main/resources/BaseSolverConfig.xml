@@ -3,7 +3,8 @@
     xsi:schemaLocation="https://www.optaplanner.org/xsd/solver https://www.optaplanner.org/xsd/solver/solver.xsd">
 
   <solutionClass>domain.Album</solutionClass>
-  <entityClass>domain.Slot</entityClass>
+  <entityClass>domain.HorizontalSlide</entityClass>
+  <entityClass>domain.VerticalSlide</entityClass>
 
   <scoreDirectorFactory>
     <incrementalScoreCalculatorClass>solver.ScoreCalc</incrementalScoreCalculatorClass>
@@ -12,8 +13,6 @@
   <termination>
     <unimprovedSecondsSpentLimit>10</unimprovedSecondsSpentLimit>
   </termination>
-  <constructionHeuristic>
-  </constructionHeuristic>
   <localSearch>
     <moveIteratorFactory>
       <moveIteratorFactoryClass>solver.PlaceSlideMoveFactory</moveIteratorFactoryClass>

@@ -8,11 +8,8 @@ import org.optaplanner.core.api.score.calculator.IncrementalScoreCalculator
 class ScoreCalc: IncrementalScoreCalculator<Album, SimpleScore> {
     private var score: Int = 0
 
-    override fun resetWorkingSolution(workingSolution: Album?) {
+    override fun resetWorkingSolution(workingSolution: Album) {
         this.score = 0
-        if (workingSolution == null) {
-            return
-        }
 
         for (slide in workingSolution.slides) {
             appendSlide(slide)

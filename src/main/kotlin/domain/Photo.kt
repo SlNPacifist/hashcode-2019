@@ -1,9 +1,15 @@
 package domain
 
 class Photo(val id: Int, val tags: Array<Int>, val isVertical: Boolean) {
+    override fun toString(): String {
+        return "Photo $id with tags ${tags.joinToString(", ")}"
+    }
+
+    companion object {
     companion object {
         fun fromString(id: Int, s: String, tagDict: HashMap<String, Int>): Photo {
-            var nextTagId = tagDict.maxByOrNull { it.value }?.value ?: 0
+            var nextTagId = tagDict.maxByOrNull { it.value }?.value ?: -1
+            nextTagId += 1
             val parts = s.split(" ")
             val (orientation, tagsCount) = parts
             val isVertical = orientation == "V"

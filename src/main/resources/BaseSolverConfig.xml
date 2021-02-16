@@ -14,9 +14,13 @@
     <unimprovedSecondsSpentLimit>10</unimprovedSecondsSpentLimit>
   </termination>
   <localSearch>
-    <moveIteratorFactory>
-      <moveIteratorFactoryClass>solver.PlaceSlideMoveFactory</moveIteratorFactoryClass>
-<!--      <selectionOrder>ORIGINAL</selectionOrder>-->
-    </moveIteratorFactory>
+    <unionMoveSelector>
+      <moveIteratorFactory>
+        <moveIteratorFactoryClass>solver.PlaceSlideMoveFactory</moveIteratorFactoryClass>
+      </moveIteratorFactory>
+      <moveIteratorFactory>
+        <moveIteratorFactoryClass>solver.SwapVerticalPhotosMoveFactory</moveIteratorFactoryClass>
+      </moveIteratorFactory>
+    </unionMoveSelector>
   </localSearch>
 </solver>

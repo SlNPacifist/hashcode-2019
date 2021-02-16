@@ -5,7 +5,8 @@
     <inheritedSolverBenchmark>
         <solver>
             <solutionClass>domain.Album</solutionClass>
-            <entityClass>domain.Slot</entityClass>
+            <entityClass>domain.HorizontalSlide</entityClass>
+            <entityClass>domain.VerticalSlide</entityClass>
 
             <scoreDirectorFactory>
                 <incrementalScoreCalculatorClass>solver.ScoreCalc</incrementalScoreCalculatorClass>
@@ -14,8 +15,6 @@
             <termination>
                 <secondsSpentLimit>30</secondsSpentLimit>
             </termination>
-            <constructionHeuristic>
-            </constructionHeuristic>
             <localSearch>
                 <moveIteratorFactory>
                     <moveIteratorFactoryClass>solver.PlaceSlideMoveFactory</moveIteratorFactoryClass>
@@ -34,9 +33,18 @@
         </solver>
     </solverBenchmark>
     <solverBenchmark>
-        <name>Multithreaded</name>
+        <name>With swap vertical photos</name>
         <solver>
-            <moveThreadCount>AUTO</moveThreadCount>
+            <localSearch>
+                <unionMoveSelector>
+                    <moveIteratorFactory>
+                        <moveIteratorFactoryClass>solver.PlaceSlideMoveFactory</moveIteratorFactoryClass>
+                    </moveIteratorFactory>
+                    <moveIteratorFactory>
+                        <moveIteratorFactoryClass>solver.SwapVerticalPhotosMoveFactory</moveIteratorFactoryClass>
+                    </moveIteratorFactory>
+                </unionMoveSelector>
+            </localSearch>
         </solver>
     </solverBenchmark>
 </plannerBenchmark>

@@ -21,6 +21,9 @@
       <moveIteratorFactory>
         <moveIteratorFactoryClass>solver.PlaceSlideMoveFactory</moveIteratorFactoryClass>
       </moveIteratorFactory>
+      <moveIteratorFactory>
+        <moveIteratorFactoryClass>solver.SwapVerticalPhotosMoveFactory</moveIteratorFactoryClass>
+      </moveIteratorFactory>
     </unionMoveSelector>
   </localSearch>
 </solver>

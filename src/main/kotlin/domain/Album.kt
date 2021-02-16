@@ -18,9 +18,9 @@ class Album {
     @ValueRangeProvider(id = "verticalPhotos")
     lateinit var verticalPhotos: Array<Photo>
 
-    // TODO: do we need this?
-    lateinit var horizontalSlides: Array<Slide>
-    lateinit var verticalSlides: Array<Slide>
+    // TODO: do we need horizontalSlides?
+    lateinit var horizontalSlides: Array<HorizontalSlide>
+    lateinit var verticalSlides: Array<VerticalSlide>
 
     @PlanningEntityCollectionProperty
     @ValueRangeProvider(id = "slides")

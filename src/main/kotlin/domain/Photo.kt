@@ -6,7 +6,6 @@ class Photo(val id: Int, val tags: Array<Int>, val isVertical: Boolean) {
     }
 
     companion object {
-    companion object {
         fun fromString(id: Int, s: String, tagDict: HashMap<String, Int>): Photo {
             var nextTagId = tagDict.maxByOrNull { it.value }?.value ?: -1
             nextTagId += 1

@@ -38,11 +38,46 @@ class Album {
         this.verticalSlides = verticalPhotos.toList().chunked(2).mapIndexed { i, p -> VerticalSlide(i, p[0], p[1]) }.toTypedArray()
         this.slides = arrayOf(*this.horizontalSlides, *this.verticalSlides)
 
-        for (i in 0..this.slides.size - 2) {
-            this.slides[i].next = this.slides[i + 1]
-            this.slides[i + 1].prev = this.slides[i]
+        val end = EndSlide()
+
+        val greedy = true
+        if (greedy) {
+            var lastSlide = this.slides[0];
+            val freeSlides = this.slides.toHashSet()
+            freeSlides.remove(this.slides[0])
+            var totalScore = 0
+            while (!freeSlides.isEmpty()) {
+                val maxSlide = freeSlides.asSequence().maxByOrNull {
+                    lastSlide.next = it
+                    val score = lastSlide.score()
+                    lastSlide.next = null
+                    score
+                }
+
+                lastSlide.next = maxSlide
+                maxSlide!!.prev = lastSlide
+
+                val lastScore = lastSlide.score()
+                totalScore += lastScore
+                println("Added score: ${lastScore}")
+                println("Total score: ${totalScore}")
+                println("Slides left: ${freeSlides.size}")
+
+                freeSlides.remove(maxSlide)
+                lastSlide = maxSlide
+            }
+            lastSlide.next = end
+            end.prev = lastSlide
         }
-        this.slides.last().next = EndSlide()
+        else {
+            for (i in 0..this.slides.size - 2) {
+                this.slides[i].next = this.slides[i + 1]
+                this.slides[i + 1].prev = this.slides[i]
+            }
+            val lastSlide = this.slides.last()
+            lastSlide.next = end
+            end.prev = lastSlide
+        }
     }
 
     companion object {

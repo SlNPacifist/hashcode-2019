@@ -4,6 +4,10 @@ import org.optaplanner.core.api.domain.entity.PlanningEntity
 import org.optaplanner.core.api.domain.lookup.PlanningId
 import org.optaplanner.core.api.domain.variable.PlanningVariable
 
+fun joinTags(a: Array<Int>, b: Array<Int>): Array<Int> {
+    return arrayOf(*a, *b).distinct().toTypedArray()
+}
+
 @PlanningEntity
 class VerticalSlide : Slide {
     @PlanningId
@@ -31,7 +35,7 @@ class VerticalSlide : Slide {
     }
 
     fun recalculateTags() {
-        this.tags = arrayOf(*photo1.tags, *photo2.tags).distinct().toTypedArray()
+        this.tags = joinTags(photo1.tags, photo2.tags)
     }
 
     override fun photosIterator(): Sequence<Photo> {

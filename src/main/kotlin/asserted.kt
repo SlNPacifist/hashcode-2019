@@ -1,7 +1,3 @@
-import domain.Album
-import org.optaplanner.core.api.solver.SolverFactory
-
-
 fun main(args: Array<String>) {
     // Path relative to src/main/kotlin/resources
     val solver = SolverFactory.createFromXmlResource<Album>("AssertedSolverConfig.xml").buildSolver()
